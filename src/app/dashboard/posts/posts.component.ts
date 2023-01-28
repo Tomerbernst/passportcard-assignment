@@ -11,18 +11,21 @@ import { Post } from './post/post.model';
 })
 export class PostsComponent {
   @Output() loadMore = new EventEmitter<string>();
-  posts$: Observable <Post[]>;
+  posts$: Observable <{posts: Post[]}>;
   searchQuery$ = new BehaviorSubject <string>('');
+  searchQueryValue: string;
   constructor(
     private store: Store<{postRed:{posts:Post[]}}>,
     private searchPostService: SearchPostService){}
 
     ngOnInit(){
-      this.searchQuery$ = this.searchPostService.searchQuery;
-      this.posts$ = this.store.select('postRed').pipe(  
-        map(({ posts }) => posts.filter(post => post.title.includes(this.searchQuery$.value)))
-      );
-      this.posts$.subscribe(x=>console.log(x));
+      this.searchQueryValue = localStorage.getItem('searchQuery') || '';
+      if(this.searchQueryValue !== ''){
+        this.searchPostService.updateSearchQuery(this.searchQueryValue);
+      }
+      this.searchQuery$ = this.searchPostService.searchQuery$;
+        this.posts$ = this.store.select('postRed');
+
     }
 
     loadMorePosts(){

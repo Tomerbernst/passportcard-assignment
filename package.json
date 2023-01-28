@@ -22,6 +22,7 @@
     "@ngrx/store": "^15.2.1",
     "@ngrx/store-devtools": "^15.2.1",
     "cors": "^2.8.5",
+    "json-server": "^0.17.1",
     "ngx-infinite-scroll": "^15.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

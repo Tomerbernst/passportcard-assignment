@@ -6,12 +6,14 @@ import { BehaviorSubject } from "rxjs";
 })
 
 export class SearchPostService {
-    searchQuery = new BehaviorSubject<string>('');
+    searchQuery$ = new BehaviorSubject<string>('');
     constructor(){}
  
 updateSearchQuery(searchQuery: string) {
-    this.searchQuery.next(searchQuery);
+    this.searchQuery$.next(searchQuery);
+    window.localStorage.setItem('searchQuery', searchQuery);
 }
+
 
 }
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '../app/dashboard/header/header.component';
@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { postReducer } from './store/post.reducer';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { PostsInterceptorService } from './dashboard/posts/posts-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     InfiniteScrollModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: PostsInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
