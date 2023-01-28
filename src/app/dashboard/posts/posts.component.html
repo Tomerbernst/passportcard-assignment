@@ -1,0 +1,8 @@
+<div *ngFor="let post of (posts$ | async).posts">
+    <app-post
+    [id]="post.id"
+    [title]="post.title"
+    [desc]="post.desc"
+    ></app-post>
+</div>
+

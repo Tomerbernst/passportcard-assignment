@@ -1,0 +1,19 @@
+
+*{
+    border: 2px solid black;
+}
+.filter-tasks{
+    height: 100px;
+    width: 100%;
+}
+.dashboard-container{
+    display: flex;
+    width: 100%;
+}
+
+.main-dashboard{
+    flex:1;
+    border:1px solid black;
+    border-bottom: none;
+
+}

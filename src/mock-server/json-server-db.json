@@ -1,0 +1,35 @@
+{
+	"posts": [{
+			"id": 1,
+			"title": "Hello World",
+			"desc": "This is the first post on my blog",
+			"date": "2022-01-01T00:00:00.000Z",
+			"author": "John Doe"
+		},
+		{
+			"id": 2,
+			"title": "Angular for Beginners",
+			"desc": "In this post, we will learn the basics of Angular",
+			"date": "2022-01-02T00:00:00.000Z",
+			"author": "Jane Doe"
+		}, {
+			"id": 3,
+			"title": "Building a REST API",
+			"desc": "Learn how to build a REST API using Node.js and Express",
+			"date": "2022-01-03T00:00:00.000Z",
+			"author": "John Doe"
+		}, {
+			"id": 4,
+			"title": "Getting started with Firebase",
+			"desc": "Learn how to use Firebase to build a real-time web app",
+			"date": "2022-01-04T00:00:00.000Z",
+			"author": "Jane Doe"
+		}, {
+			"id": 5,
+			"title": "Creating a Single Page Application",
+			"desc": "Learn how to create a single page application using Angular",
+			"date": "2022-01-05T00:00:00.000Z",
+			"author": "John Doe"
+		}
+	]
+}
