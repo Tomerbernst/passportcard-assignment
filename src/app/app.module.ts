@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { postReducer } from './store/post.reducer';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { postReducer } from './store/post.reducer';
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot({postRed:postReducer}),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

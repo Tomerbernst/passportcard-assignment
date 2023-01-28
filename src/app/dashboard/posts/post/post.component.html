@@ -1,7 +1,7 @@
-<div class="card-container" id="id">
+<div class="card-container" id={{id}}>
     <div class="card">
         <div class="card-menu">
-            Delete Post
+           <button (click)="deletePost(this.id)">Delete post</button>
         </div>
         <div class="card-header">
             <p>{{title}}</p>
@@ -11,4 +11,3 @@
         </div>
     </div>
     </div>
-    

@@ -11,13 +11,11 @@ const baseUrl = environment.apiBaseUrl;
 })
 
 export class PostsService {
-        
+    
     constructor(private http: HttpClient){}
     
-    getPosts(): Observable<Post[]>{
-        return this.http.get<Post[]>(`${baseUrl}/posts`);
+    getPosts(page: number, limit: number): Observable<Post[]>{
+        return this.http.get<Post[]>(`${baseUrl}/posts?page=${page}&limit=${limit}`);
     }
-
-
 
 }

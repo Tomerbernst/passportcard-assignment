@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Post } from './post.model';
+import * as PostAction from '../../../store/post.action';
 
 @Component({
   selector: 'app-post',
@@ -10,6 +13,10 @@ export class PostComponent {
   @Input() title: string;
   @Input() desc: string;
 
-  constructor(){}
+  constructor( private store: Store<{postRed:{posts:Post[]}}>){}
+  
+  deletePost(id:number){
+    this.store.dispatch(new PostAction.DeletePost(id));
+  }
 
 }

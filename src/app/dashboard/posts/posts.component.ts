@@ -22,3 +22,16 @@ export class PostsComponent {
 
 
 }
+/*
+ngOnInit(){
+  this.postService.getPosts()
+  .pipe(
+    map(posts =>{
+      posts.forEach(post =>{
+        this.store.dispatch(new PostAction.AddPost(post));
+      })
+    })
+  )
+  .subscribe();
+}
+*/

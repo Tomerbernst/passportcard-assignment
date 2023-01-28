@@ -16,7 +16,7 @@ export class DashboardComponent {
     ){}
 
   ngOnInit(){
-    this.postService.getPosts()
+    this.postService.getPosts(1,3)
     .pipe(
       map(posts =>{
         posts.forEach(post =>{
