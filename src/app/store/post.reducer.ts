@@ -20,8 +20,8 @@ export function postReducer(
         posts: [
           ...state.posts.filter((post) => {
             return !(post.id == action.payload);
-          }),
-        ],
+          })
+        ]
       };
     default: {
       return state;

@@ -16,7 +16,6 @@ export class DeletePost implements Action {
 }
 
 
-
 export type PostAction = AddPost | DeletePost;
 
 

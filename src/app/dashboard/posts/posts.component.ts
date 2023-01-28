@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable} from 'rxjs';
+import { SearchPostService } from '../filter-posts/filter-posts.service';
 import { Post } from './post/post.model';
-import { PostsService } from './posts.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,28 +10,22 @@ import { PostsService } from './posts.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent {
-  posts$: Observable <{posts: Post[]}>;
-
-  constructor(private postService:PostsService,
-    private store: Store<{postRed:{posts:Post[]}}>
-    ){}
+  @Output() loadMore = new EventEmitter<string>();
+  posts$: Observable <Post[]>;
+  searchQuery$ = new BehaviorSubject <string>('');
+  constructor(
+    private store: Store<{postRed:{posts:Post[]}}>,
+    private searchPostService: SearchPostService){}
 
     ngOnInit(){
-      this.posts$ = this.store.select('postRed');
+      this.searchQuery$ = this.searchPostService.searchQuery;
+      this.posts$ = this.store.select('postRed').pipe(  
+        map(({ posts }) => posts.filter(post => post.title.includes(this.searchQuery$.value)))
+      );
+      this.posts$.subscribe(x=>console.log(x));
     }
 
-
+    loadMorePosts(){
+      this.loadMore.emit();
+    }
 }
-/*
-ngOnInit(){
-  this.postService.getPosts()
-  .pipe(
-    map(posts =>{
-      posts.forEach(post =>{
-        this.store.dispatch(new PostAction.AddPost(post));
-      })
-    })
-  )
-  .subscribe();
-}
-*/

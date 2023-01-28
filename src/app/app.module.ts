@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '../app/dashboard/header/header.component';
 import { PostsComponent } from '../app/dashboard/posts/posts.component';
@@ -27,7 +27,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     HttpClientModule,
     StoreModule.forRoot({postRed:postReducer}),
     StoreDevtoolsModule.instrument(),
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
