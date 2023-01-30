@@ -2,19 +2,14 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
-
 export class SearchPostService {
-    searchQuery$ = new BehaviorSubject<string>('');
-    constructor(){}
- 
-updateSearchQuery(searchQuery: string) {
+  searchQuery$ = new BehaviorSubject<string>("");
+  constructor() {}
+
+  updateSearchQuery(searchQuery: string) {
     this.searchQuery$.next(searchQuery);
-    window.localStorage.setItem('searchQuery', searchQuery);
+    window.localStorage.setItem("searchQuery", searchQuery);
+  }
 }
-
-
-}
-
-

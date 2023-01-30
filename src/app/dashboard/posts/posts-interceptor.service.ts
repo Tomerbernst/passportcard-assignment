@@ -8,7 +8,6 @@ export class PostsInterceptorService implements HttpInterceptor {
     apiKey: string = environment.apiKey;
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log('request on way');
         const modifiedReq = req.clone({ headers: req.headers.append('api-key', this.apiKey) });
 
         return next.handle(modifiedReq);

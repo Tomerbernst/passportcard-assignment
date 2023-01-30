@@ -7,15 +7,12 @@ import { Post } from "./post/post.model";
 const baseUrl = environment.apiBaseUrl;
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
-
 export class PostsService {
-    
-    constructor(private http: HttpClient){}
-    
-    getAllPosts(): Observable<Post[]>{
-        return this.http.get<Post[]>(`${baseUrl}/posts`);
-    }
+  constructor(private http: HttpClient) {}
 
+  getAllPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(`${baseUrl}/posts`);
+  }
 }

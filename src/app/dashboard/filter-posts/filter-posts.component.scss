@@ -1,17 +1,22 @@
-
-.search-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
 .search-box{
-    padding:10px;
-    margin-left: 20px;
+    padding:10px 40px;
     outline: none;
-    text-align: center;
+    border: none;
+    border-radius: 1.625rem;
+    border: 0.5px solid #33739E;
+    font-size: 1rem;
 }
-
 .search-box:focus{
     box-shadow: 0 0 10px #888888;
+}
+.wrapper{
+    text-align: center;
+}
+.label{
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    text-align: center;
+    margin-bottom: 10px;
 }

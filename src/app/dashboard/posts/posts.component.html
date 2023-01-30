@@ -1,10 +1,5 @@
-<div infinite-scroll [infiniteScrollDistance]="1" (scrolled)="loadMorePosts()">
-    <div *ngFor="let post of (posts$ | async).posts">
-        <app-post
-        *ngIf="(post.title.toLocaleLowerCase()).includes(searchQuery$ | async)"
-        [id]="post.id"
-        [title]="post.title"
-        [desc]="post.desc"
-        ></app-post>
+<div infinite-scroll [infiniteScrollDistance]="1" (scrolled)="loadMorePosts()" class="post-container">
+    <div *ngFor="let post of (posts$ | async).posts | searchPost: (searchQuery$ | async)" class="posts">
+      <app-post [id]="post.id" [title]="post.title" [desc]="post.desc"></app-post>
     </div>
-</div>
+  </div>

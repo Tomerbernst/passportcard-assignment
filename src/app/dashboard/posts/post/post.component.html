@@ -1,13 +1,13 @@
 <div class="card-container" id={{id}}>
     <div class="card">
-        <div class="card-menu">
-           <button (click)="deletePost(this.id)">Delete post</button>
-        </div>
-        <div class="card-header">
-            <p>{{title}}</p>
+      <div class="card-header">
+        <h2 class="card-title">{{title}}</h2>
+        <div class="bin-container">
+          <img src="../../../../assets/bin.png" (click)="deletePostValidate()" height="30" width="25" class="bin">
         </div>
         <div class="card-content">
-            <p>{{desc}}</p>
+          <p class="card-desc">{{desc}}</p>
         </div>
-    </div>
+      </div>
+      <app-alert *ngIf="showAlert" message="Are you sure you want to do this?" (onOk)="okClickHandler(id)" (onCancel)="cancelClickHandler()"></app-alert>
     </div>
